@@ -6,9 +6,27 @@
     <title>Homepage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="style.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
     <!-- <script src='main.js'></script> -->
   </head>
   <body>
+    <div class="stats">
+      <p>Welcome to Checkers</p>
+      <p>Choose your Gamemode</p>
+      <div class="wrapper">
+        <div class="player1">
+          <h3>
+            <a href="index.html">Checkers</a>
+          </h3>
+        </div>
+        <div class="player2">
+          <a href="polishCheckers.html">Polish Checkers</a>
+        </div>
+      </div>
+    </div>
     <script>
       fetch("http://localhost:8080/home")
         .then((res) => res.json())
