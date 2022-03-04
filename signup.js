@@ -1,13 +1,13 @@
 console.disableYellowBox = true;
-firebaseConfig = {
-    apiKey: "AIzaSyCK8UYbVGTsBf6y55f6iitsQNlKVlFc3h0",
-    authDomain: "projects-in-existing-code.firebaseapp.com",
-    projectId: "projects-in-existing-code",
-    storageBucket: "projects-in-existing-code.appspot.com",
-    messagingSenderId: "407952246807",
-    appId: "1:407952246807:web:bb3e486e1349053558f452",
-    measurementId: "G-KCE3GKLX2"
-};
+const firebaseConfig = {
+    apiKey: "AIzaSyBd7CxArmWjhAlNur3BKOgSI0Y2rmoxvtU",
+    authDomain: "fashionplus-e21de.firebaseapp.com",
+    projectId: "fashionplus-e21de",
+    storageBucket: "fashionplus-e21de.appspot.com",
+    messagingSenderId: "553564910554",
+    appId: "1:553564910554:web:76252698401c4dbfe206e3",
+    measurementId: "G-JBEPECTEL6"
+  };
 
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -41,8 +41,19 @@ function signOut(){
 auth.onAuthStateChanged(function(user){
     if(user){
         var email = user.email;
-        alert("Active User" + email);
+        console.log("Active User: " + email);
+        //alert("Active User: " + email);
     } else {
        // alert("No Active User");
     }
 });
+
+// rules_version = '2';
+// service cloud.firestore {
+//   match /databases/{database}/documents {
+//     match /{document=**} {
+//       allow read, write: if
+//           request.time < timestamp.date(2022, 1, 2);
+//     }
+//   }
+// }
