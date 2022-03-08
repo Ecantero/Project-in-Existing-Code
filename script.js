@@ -117,11 +117,11 @@ window.onload = function () {
       //remove it and delete it from the gameboard
       this.element.css("display", "none");
       if (this.player == 1) {
-        $('#player2').append("<div class='capturedPiece'></div>");
+        $("#player2").append("<div class='capturedPiece'></div>");
         Board.score.player2 += 1;
       }
       if (this.player == 2) {
-        $('#player1').append("<div class='capturedPiece'></div>");
+        $("#player1").append("<div class='capturedPiece'></div>");
         Board.score.player1 += 1;
       }
       Board.board[this.position[0]][this.position[1]] = 0;
@@ -129,9 +129,41 @@ window.onload = function () {
       this.position = [];
       var playerWon = Board.checkifAnybodyWon();
       if (playerWon) {
-        $('#winner').html("Player " + playerWon + " has won!");
+        $("#winner").html("Player " + playerWon + " has won!");
+        let user = localStorage.getItem("email");
+        if (playerWon == 1) {
+          let winCount = localStorage.getItem("winCount") + 1;
+          fetch("http://localhost:8080/updateScore", {
+            method: "post",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: user,
+              win: winCount,
+            }),
+          }).then((res) => {
+            console.log(res);
+          });
+        } else {
+          let loseCount = localStorage.getItem("loseCount") + 1;
+          fetch("http://localhost:8080/updateScore", {
+            method: "post",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: user,
+              win: loseCount,
+            }),
+          }).then((res) => {
+            console.log(res);
+          });
+        }
       }
-    }
+    };
   }
 
   function Tile(element, position) {

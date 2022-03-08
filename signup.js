@@ -27,13 +27,16 @@ function signIn(){
     var email = document.getElementById('signUpEmail');
     var password = document.getElementById('signUpPassword');
     const promise = auth.signInWithEmailAndPassword(email.value, password.value);
-    promise.catch(e => alert(e.message));
+    promise.then((e) => {
+        localStorage.setItem("email", email);
+    }).catch(e => alert(e.message));
 
    // alert("Signed In " + email);
 }
 
 function signOut(){
     auth.signOut();
+    localStorage.clear();
     alert("Signed Out.");
 
 }
