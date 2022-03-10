@@ -1,68 +1,89 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Instructions Page</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Home - Checkers+</title>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    <script src="signup.js"></script>
+    <script src="checkers.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:400,700"
-      rel="stylesheet"
-    />
-    <link href="style.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="favicon.png" type="image/x-icon" />
-    <script src="checkersPolish.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="home.html"><h2>Checkers+</h2></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="home.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Play Now</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="instructions.html">Instructions</a>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <button
-              class="btn btn-outline-danger"
-              type="submit"
-              onclick="signOut()"
-            >
-              Sign Out
-            </button>
-          </form>
-        </div>
+        <div class="container-fluid">
+          <a class="navbar-brand" href="home.html"><h2>Checkers+</h2></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Play Now</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="instructions.html">Instructions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="settings.html" class="settingsLink" id="settings">Settings</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+            <button class="btn btn-outline-danger" type="submit"  onclick="signOut()">Sign Out</button>
+            </form>
+          </div>
       </div>
     </nav>
-  </head>
-  <body></body>
+</head>
+  <body>
+    <div class="flexCenter">
+      <div class="instructionBody">
+        <div class="titleText">Quick Rundown on Chess</div>
+        <div class="bodyText">Checkers is a board game played between two people on an 8x8 checked board like the one shown below. Each player has 12 pieces that are like flat round disks that fit inside each of the boxes on the board. The pieces are placed on every other dark square and then staggered by rows, like shown on the board.</div>
+        <img class="instructionImage" src="./img/instructions1.png" alt="checkers display" style="height: 25%", width="25%"/>
+        <div class='subheaderText'>Taking a Turn</div>
+        <div class="bodyText">Typically the darker color pieces moves first. Each player takes their turn by moving a piece. Pieces are always moved diagonally and can be moved in the following ways:
+          <ul class="listContainer">
+            <li>Diagonally in the forward direction (towards the opponent) to the next dark square.</li>
+            <li>If there is one of the opponent's pieces next to a piece and an empty space on the other side, you jump your opponent and remove their piece. You can do multiple jumps if they are lined up in the forward direction. *** note: if you have a jump, you have no choice but to take it.</li>
+          </ul>
+        </div>
+        <div class='subheaderText'>King Pieces</div>
+        <div class="bodyText"> The last row is called the king row. If you get a piece across the board to the opponent's king row, that piece becomes a king. Another piece is placed onto that piece so it is now two pieces high. King pieces can move in both directions, forward and backward.
+        Once a piece is kinged, the player must wait until the next turn to jump out of the king row.</div>
+        <div class='subheaderText'>Winning the Game</div>
+        <div class="bodyText">You win the game when the opponent has no more pieces or can't move (even if he/she still has pieces). If neither player can move then it is a draw or a tie.</div>
+        <div class='subheaderText'>Strategy & Tips</div>
+        <div class="bodyText">
+          <ul class="listContainer">
+            <li>Sacrifice 1 piece for 2: you can sometimes bait or force the opponent to take one of your pieces enabling you to then take 2 of their pieces.</li>
+            <li>Pieces on the sides are valuable because they can't be jumped.</li>
+            <li>Don't bunch all your pieces in the middle or you may not be able to move, and then you will lose.</li>
+            <li>Try to keep your pieces on the back row or king row for as long as possible, to keep the other player from gaining a king.</li>
+            <li>Plan ahead and try to look at every possible move before you take your turn.</li>
+            <li>Practice: if you play a lot against a lot of different players, you will get better.</li>
+          </ul> 
+        </div>
+        <div class='subheaderText'>Fun Facts</div>
+        <div class="bodyText">
+          <ul class="listContainer">
+            <li>The game of checkers is called "draughts" in many countries.</li>
+            <li>It comes from an old game called Alquerque.</li>
+            <li>Chess can be played on the same game board as checkers.</li>
+            <li>The game Chinese Checkers has very little to with Checkers and was invented by the Germans, not the Chinese.</li>
+            <li>In 1535 the rule that you had to jump when presented with a jump opportunity was added to the game.</li>
+            <li>There are lots of different variants of checkers including a version that is played on a 10x10 board with 20 pieces per player.</li>
+          </ul>
+        </div>
+        
+        <div class="bodyText">Read more at: <a href="https://www.ducksters.com/games/checkers_rules.php">https://www.ducksters.com/games/checkers_rules.php</a></div>
+      </div>
+    </div>  
+  </body>
 </html>
