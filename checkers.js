@@ -57,14 +57,6 @@ auth.onAuthStateChanged(function(user){
     if(user){
         var email = user.email;
         console.log("Active User: " + email);
-        var signIn = document.getElementById('sign-in');
-        var userStats = document.getElementById('signed-in');
-        signIn.style.display = 'none';
-        userStats.style.display = "block";
-        var username = document.getElementById('username');
-        username.innerHTML = `${email}`;
-        var settings = document.getElementById('settings');
-        settings.style.display = 'block';
         var body = document.body;
         console.log()
         var backgroundColor = localStorage.getItem('backgroundColor');
