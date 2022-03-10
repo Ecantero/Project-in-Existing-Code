@@ -6,6 +6,7 @@
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "firebase": "^9.6.7",
+    "firebase-admin": "^10.0.2",
     "nodemon": "^2.0.15"
   },
   "name": "project-in-existing-code",
